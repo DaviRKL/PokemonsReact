@@ -1,9 +1,8 @@
 import './App.css'
 import Menu from './layout/Menu'
-import Footer from './layout/Footer';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Pokemon from './pages/Pokemon';
+import { Home } from './pages/Home/index';
+import { Footer } from './layout/Footer/index';
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <div className="container">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:uri" element={<Pokemon />} />
       </Routes>
       <Footer/>
       </div>

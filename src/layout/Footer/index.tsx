@@ -1,5 +1,5 @@
 import './styles.css';
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="footer">
       <img className="footer__image" src="/assets/images/logo.svg" alt="Pokémon Unite" />
@@ -14,5 +14,3 @@ const Footer = () => {
     </footer>
   );
 }
-
-export default Footer

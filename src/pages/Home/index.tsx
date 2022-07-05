@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import pokemonService, { IListPokemon } from '../../services/PokemonService';
+import pokemonService from '../../services/PokemonService';
 
-const Home = () => {
+export const Home = () => {
   import('./styles.css');
 
-  const [pokemons, setPokemons] = useState<IListPokemon[]>([]);
-  const [search, setSearch] = useState<string>('');
+  const [pokemons, setPokemons] = useState<any[]>([]);
+  
   useEffect(() => {
     pokemonService.getPokemons().then((data) => {
       setPokemons(data)
@@ -17,9 +17,9 @@ const Home = () => {
       <h1>Pokémon Unite - Pokédex</h1>
       <h2>Confira a lista completa de Pokémons do jogo Pokemón Unite e suas habilidades, evoluções e muito mais!</h2>
       <div className="search__container">
-        <input className="search__field" placeholder="Pesquisar Pokémon" onChange={({ target }) => setSearch(target.value)} />
-        <button className="search__button" onClick={() => setPokemons(pokemonService.searchPokemon(search))}>Buscar</button>
-        <button className="search__button--mobile" onClick={() => setPokemons(pokemonService.searchPokemon(search))}>
+        <input className="search__field" placeholder="Pesquisar Pokémon"  />
+        <button className="search__button" >Buscar</button>
+        <button className="search__button--mobile" >
           <img src='/assets/images/search.svg' />
         </button>
 
@@ -39,5 +39,3 @@ const Home = () => {
     </>
   );
 }
-
-export default Home
