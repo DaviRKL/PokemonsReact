@@ -35,21 +35,21 @@ export interface IPokemons{
 }
 
 class PokemonService {
-  private pokemons: IPokemons[] = [];
+  private listPokemons: IPokemons[] = [];
 
   public async getPokemons(): Promise<IPokemons[]> {
     try {
       const response = await axios.get("https://6283929f92a6a5e462260498.mockapi.io/pokemons");
-      this.pokemons = response.data;    
+      this.listPokemons = response.data;    
       
-      return this.pokemons;
+      return this.listPokemons;
     } catch (error) {
       return [];
     }
   }
 
   public searchPokemon(search: string){
-    const pokemonsFiltrados = this.pokemons.filter((pokemon) => {
+    const pokemonsFiltrados = this.listPokemons.filter((pokemon) => {
       return pokemon.name.toUpperCase().includes(search.toUpperCase());
     })
 
